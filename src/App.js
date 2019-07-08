@@ -30,11 +30,10 @@ class App extends React.Component {
       const dogVotes = resp.find(elem => elem.name === "Koer");
       const catVotes = resp.find(elem => elem.name === "Kass");
 
-      if (dogVotes && catVotes)
-        this.setState({
-          dogVotes: dogVotes.count,
-          catVotes: catVotes.count
-        });
+      this.setState({
+        dogVotes: dogVotes ? dogVotes.count : 0,
+        catVotes: catVotes ? catVotes.count : 0
+      });
 
       this.setState({ loading: false });
     };
